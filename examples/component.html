@@ -3,15 +3,12 @@
 </template>
 
 <script>
-    define(["Vue"], function(Vue) {
 		console.log(" registering the component my-component2");
-		Vue.component("my-component2", {
-			template: template,
+		export default {
 			data: function() {
 				return {"text": "Ok from component.html"};
 			}
-		});
-    });
+		};
 </script>
 
 <style>
