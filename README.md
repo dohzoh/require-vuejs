@@ -1,20 +1,11 @@
-# require-vuejs
-> RequireJS plugin to async and dynamic load and parse .vue single file components 
-
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/e431a6e1ba314ba7a4b3debfc9643503)](https://www.codacy.com/app/edgardleal/require-vuejs?utm_source=github.com&utm_medium=referral&utm_content=edgardleal/require-vuejs&utm_campaign=badger)
-[![Build Status](https://travis-ci.org/edgardleal/require-vuejs.svg?branch=master)](https://travis-ci.org/edgardleal/require-vuejs)
-[![codecov](https://codecov.io/gh/edgardleal/require-vuejs/branch/master/graph/badge.svg)](https://codecov.io/gh/edgardleal/require-vuejs)
-[![Code Climate](https://codeclimate.com/github/edgardleal/require-vuejs/badges/gpa.svg)](https://codeclimate.com/github/edgardleal/require-vuejs)
-
-[![NPM](https://nodei.co/npm/require-vuejs.png)](https://nodei.co/npm/require-vuejs/)
-
-This library has only 4Kb ( minified ).
+# systemjs-vue-inbrowser
+> SystemJS plugin to async and dynamic load and parse .vue single file components 
 
 ## What this library can do
 
 * Real time integration 
 * Don't need build to use
-* Used as RequireJS plugin 
+* Used as SystemJS plugin 
 * You can use syntax detection from your IDE
 * Suport for [single file component](https://vuejs.org/v2/guide/single-file-components.html)
 * Work with or without extension
@@ -25,25 +16,17 @@ This library has only 4Kb ( minified ).
 * Parse Jade and other templates 
 * Scoped css 
 
-## CDN 
-Development ( last version )
+## Dist
+
+    https://github.com/dohzoh/systemjs-vue-inbrowser/raw/develop/dist/plugin-vue-inbrowser.js
+    https://github.com/dohzoh/systemjs-vue-inbrowser/raw/develop/dist/plugin-vue-inbrowser.min.js
 
 
-    https://rawgit.com/edgardleal/require-vuejs/master/dist/require-vuejs.js
+## examples
 
+ * [Responsive ChessGrid Component using VueJS and SystemJS](https://next.plnkr.co/plunk/ejo8AEKAjPrwGSHk)
+ * [Vue Router + Vuetify JS Example in browser without webpack](https://next.plnkr.co/plunk/1vHV3T)
 
-For production usage: ( Fast CDN, long age cache and minified )
-
-    https://cdn.rawgit.com/edgardleal/require-vuejs/aeaff6db/dist/require-vuejs.min.js
-
-## Instalation from [NPM repository](https://www.npmjs.com/package/require-vuejs)
-
-`npm install require-vuejs`
-
-
-## Usage 
-
-This example on [Codepen](http://codepen.io/edgardleal/pen/XMaeNP/)
 
 ### File structure
 
@@ -115,35 +98,13 @@ Create your app code: ( app.js )
     });
 ```
 
-## Optimize ( r.js )
-
-Create a build file to `r.js`. In this example we are using a file named `build.js`:
-
-```js
-    ({
-        baseUrl: ".",
-        paths: {
-            "Vue": "https://cdnjs.cloudflare.com/ajax/libs/vue/2.2.1/vue",
-            "vue": "require-vuejs" // full path to require-vuejs library file 
-        },
-        name: "app",
-        out: "main-built.js"
-    })
-```
-
-After create the file `build.js` with your build configuration execute this command: 
-
-```bash
-    r.js -o build.js
-```
-
 ## Contributing
 
 [CONTRIBUTING](https://github.com/edgardleal/require-vuejs/blob/master/CONTRIBUTING.md)
 
 ## License  
 
-[MIT](https://github.com/edgardleal/require-vuejs/blob/master/LICENSE)
+[MIT](https://github.com/dohzoh/systemjs-vue-inbrowser/blob/develop/LICENSE)
 
 ## Code of Conduct  
 
