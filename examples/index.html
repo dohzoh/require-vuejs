@@ -1,57 +1,14 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-
 <head>
-	<meta charset="utf-8" />
-	<title>Require Vue</title>
+  <title>Systemjs Plugin Vue inBrowser Examples</title>
+  <link rel="stylesheet" href="/global.css">
 </head>
-
-<body>
-	<div id="app">
-		<my-component></my-component>
-		<my-component2></my-component2>
-		<from-alias/>
-	</div>
-<!--	
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/6.26.0/polyfill.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/6.0.20/browser.min.js"></script>
--->
-	<script src="https://unpkg.com/systemjs/dist/system.js"></script>
-	<script>
-		window.define = SystemJS.amdDefine;
-		window.require = window.requirejs = SystemJS.amdRequire;
-
-		System.config({
-			map: {
-				Vue: "https://unpkg.com/vue",
-				vue: "./src/plugin-vue-inbrowser.min.js",
-				'plugin-babel': 'https://unpkg.com/systemjs-plugin-babel/plugin-babel.js',
-				'systemjs-babel-build': 'https://unpkg.com/systemjs-plugin-babel/systemjs-babel-browser.js',
-			},
-			meta: {
-				"*.vue": { loader: "vue" }
-			},
-			transpiler: 'plugin-babel',
-		});
-		Promise.all([
-			System.import('Vue'),
-			System.import('./component.vue!vue'),
-			System.import('./component.html!vue'),
-			System.import('./using_alias.vue!vue'),
-		]).then(([Vue, myComponent, myComponent2, fromAlias]) => {
-			console.log('App', myComponent);
-			new Vue({
-				el: "#app",
-				components:{
-					myComponent: myComponent.default,
-					myComponent2: myComponent2.default,
-					fromAlias: fromAlias.default,
-				},
-			});
-
-		});
-
-	</script>
+<body style="padding: 0 20px">
+  <h1>Systemjs Plugin Vue inBrowser Examples</h1>
+  <ul>
+    <li><a href="./simple">Simple</a></li>
+    <li><a href="./data-fetching">data-fetching</a></li>
+  </ul>
 </body>
-
 </html>
