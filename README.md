@@ -24,8 +24,8 @@
 
 ## examples
 
-[Responsive ChessGrid Component using VueJS and SystemJS](https://next.plnkr.co/plunk/ejo8AEKAjPrwGSHk)
-[Vue Router + Vuetify JS Example in browser without webpack](https://next.plnkr.co/plunk/1vHV3T)
+ * [Responsive ChessGrid Component using VueJS and SystemJS](https://next.plnkr.co/plunk/ejo8AEKAjPrwGSHk)
+ * [Vue Router + Vuetify JS Example in browser without webpack](https://next.plnkr.co/plunk/1vHV3T)
 
 
 ### File structure
