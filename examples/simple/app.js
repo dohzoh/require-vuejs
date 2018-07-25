@@ -1,4 +1,4 @@
-//var System = require("systemjs");
+// pnpm i @types/systemjs
 System.config({
     map: {
         Vue: "https://unpkg.com/vue",
@@ -17,7 +17,7 @@ Promise.all([System["import"]("Vue")]).then(function (_a) {
         el: "#app",
         components: {
             myComponent: function () { return System["import"]("./component.vue!vue"); },
-            myComponent2: function () { return System["import"]("./component.html!vue"); },
+            myComponent2: function () { return System["import"]("./component2.vue!vue"); },
             fromAlias: function () { return System["import"]("./using_alias.vue"); }
         }
     });

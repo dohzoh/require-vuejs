@@ -29,11 +29,7 @@
 </template>
 
 <script>
-define(["Vue"], function(Vue) {
-
-    return Vue.component("vue-vue", {
-        template: template
-    });
-
-});
+export default {
+  name: "vue-vue",
+};
 </script>

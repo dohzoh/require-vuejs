@@ -1,6 +1,4 @@
-declare function require(x: string): any;
-var System = require("systemjs");
-
+// pnpm i @types/systemjs
 System.config({
   map: {
     Vue: "https://unpkg.com/vue",
@@ -19,7 +17,7 @@ Promise.all([System.import("Vue")]).then(([Vue]) => {
     el: "#app",
     components: {
       myComponent: () => System.import("./component.vue!vue"),
-      myComponent2: () => System.import("./component.html!vue"),
+      myComponent2: () => System.import("./component2.vue!vue"),
       fromAlias: () => System.import("./using_alias.vue")
     }
   });

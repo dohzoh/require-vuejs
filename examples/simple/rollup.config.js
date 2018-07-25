@@ -13,7 +13,8 @@ export default {
           allowSyntheticDefaultImports: true,
           moduleResolution: "node",
           module: "es2015",
-          lib: ["es2015"]
+          lib: ["es2015"],
+          types: ["node", "systemjs"]
         }
       }
     })

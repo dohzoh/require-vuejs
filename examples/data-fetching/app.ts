@@ -1,6 +1,4 @@
-declare function require(x: string): any;
-var System = require("systemjs");
-
+// pnpm i @types/systemjs
 System.config({
   map: {
     Vue: "https://unpkg.com/vue",
