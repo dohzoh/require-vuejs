@@ -1,24 +1,24 @@
-/* global requirejs, require */
-/**
- * app.js
- *
- * Distributed under terms of the MIT license.
- */
-
-requirejs.config({
-    waitSeconds: 1,
-    paths: {
-        "Vue": "https://cdnjs.cloudflare.com/ajax/libs/vue/2.3.4/vue",
-        "vue": ["require-vuejs", "https://rawgit.com/edgardleal/require-vuejs/master/dist/require-vuejs"],
-        "alias": "using_alias"
+//var System = require("systemjs");
+System.config({
+    map: {
+        Vue: "https://unpkg.com/vue",
+        vue: "../src/plugin-vue-inbrowser.min.js",
+        "plugin-babel": "https://unpkg.com/systemjs-plugin-babel/plugin-babel.js",
+        "systemjs-babel-build": "https://unpkg.com/systemjs-plugin-babel/systemjs-babel-browser.js"
     },
-    shim: {
-        "Vue": {"exports": "Vue"}
-    }
+    meta: {
+        "*.vue": { loader: "vue" }
+    },
+    transpiler: "plugin-babel"
 });
-
-require(["Vue", "vue!component", "vue!component.html", "vue!using_alias"], function(Vue){
+Promise.all([System["import"]("Vue")]).then(function (_a) {
+    var Vue = _a[0];
     new Vue({
-        el: "#app"
+        el: "#app",
+        components: {
+            myComponent: function () { return System["import"]("./component.vue!vue"); },
+            myComponent2: function () { return System["import"]("./component.html!vue"); },
+            fromAlias: function () { return System["import"]("./using_alias.vue"); }
+        }
     });
 });
