@@ -28,25 +28,20 @@
 </template>
 
 <script>
-define(["Vue"], function(Vue) {
-
-    return Vue.component("vue-home", {
-        template: template,
-        data: function() {
-            return {
-                now: new Date()
-            };
-        },
-        mounted: function() {
-            this.refresh();
-        },
-        methods: {
-            refresh: function() {
-                this.now = new Date();
-                setTimeout(this.refresh, 2000);
-            }
-        }
-    });
-
-});
+export default {
+  data: function() {
+    return {
+      now: new Date()
+    };
+  },
+  mounted: function() {
+    this.refresh();
+  },
+  methods: {
+    refresh: function() {
+      this.now = new Date();
+      setTimeout(this.refresh, 2000);
+    }
+  }
+};
 </script>

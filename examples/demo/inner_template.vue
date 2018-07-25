@@ -18,8 +18,7 @@
                 Seccond item: 
                 <small v-text="'Inside inner template'"></small>
                 <template v-for="item in list">
-                   <br/>
-                   <span> Using many itens inside a template with loop </span>
+                   <span :key="item"> Using many itens inside a template with loop {{item}}</span>
                 </template>
               </template>
             </div>
@@ -36,17 +35,12 @@
 </template>
 
 <script>
-
-define([], function() {
+export default {
+  data: function() {
     return {
-      template: template,
-      data: function() {
-        return {
-          list: [1, 2, 3],
-          isVisible: true,
-        };
-      }
+      list: [1, 2, 3],
+      isVisible: true
     };
-});
-
+  }
+};
 </script>

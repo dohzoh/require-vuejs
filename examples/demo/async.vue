@@ -26,20 +26,14 @@
 </template>
 
 <script>
-define(["Vue"], function(Vue) {
-
-    var result = {
-        template: template,
-        data: function() {
-            var time = new Date();
-            return {
-                loaded: time
-            };
-        }
+var result = {
+  data: function() {
+    var time = new Date();
+    return {
+      loaded: time
     };
+  }
+};
 
-    Vue.component("vue-html", result);
-
-    return result;
-});
+export default result;
 </script>

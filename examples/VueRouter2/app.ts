@@ -1,10 +1,8 @@
 // pnpm i @types/systemjs
-"use strict";
-
 System.config({
   map: {
     Vue: "https://unpkg.com/vue",
-    vue: "/src/plugin-vue-inbrowser.min.js",
+    vue: "../src/plugin-vue-inbrowser.min.js",
     "plugin-babel": "https://unpkg.com/systemjs-plugin-babel/plugin-babel.js",
     "systemjs-babel-build":
       "https://unpkg.com/systemjs-plugin-babel/systemjs-babel-browser.js"
@@ -14,12 +12,13 @@ System.config({
   },
   transpiler: "plugin-babel"
 });
-
-System.import("Vue").then(Vue => {
-  var app = new Vue({
+Promise.all([System.import("Vue")]).then(([Vue]) => {
+  new Vue({
     el: "#app",
     components: {
-      myComponent: () => System.import("./component.vue")
+      myComponent: () => System.import("./component.vue!vue"),
+      myComponent2: () => System.import("./component2.vue!vue"),
+      fromAlias: () => System.import("./using_alias.vue")
     }
   });
 });

@@ -41,61 +41,66 @@ index.html
 ```html
     <!DOCTYPE html>
     <html>
-        <head>
-        <meta charset="utf-8" />
-            <title>Require Vue</title>
-        </head>
-        <body>
-            <div id="app">
-                <my-component></my-component>
-        </div>
-            <script data-main="app" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.3/require.min.js" ></script>
-        </body>
+    
+    <head>
+      <meta charset="utf-8" />
+      <title>Simple Vue</title>
+    </head>
+    
+    <body>
+      <div id="app">
+        <my-component></my-component>
+      </div>
+    </body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/6.26.0/polyfill.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/6.0.20/browser.min.js"></script>
+    
+    <script src="https://unpkg.com/systemjs/dist/system.js"></script>
+    <script src="./app.js"></script>
+    
     </html>
 ```
 ---
 
 Create your component:  ( component.vue )
 ```html
-    <template>
-      <div>
-          {{text}}
-      </div>
-    
-    </template>
-    
-    <script>
-      define(["Vue"], function(Vue) {
-          Vue.component("my-component", {
-              template: template, // the variable template will be injected 
-              data: function() {
-                  return {"text": "Ok"};
-              }
-          });
-        });
-    </script>
+<template>
+  <div>
+      {{text}}
+  </div>
+</template>
+<script>
+export default {
+  data: function() {
+    return { text: "Ok" };
+  }
+};
+</script>
 ```
 ---
 
 Create your app code: ( app.js )
 ```js
-    requirejs.config({
-        paths: {
-            "Vue": "https://cdnjs.cloudflare.com/ajax/libs/vue/2.2.1/vue.min",
-            "vue": "https://rawgit.com/edgardleal/require-vue/master/dist/require-vuejs"
-        },
-        shim: {
-            "Vue": {"exports": "Vue"}
+System.config({
+    map: {
+        Vue: "https://unpkg.com/vue",
+        vue: "/src/plugin-vue-inbrowser.min.js",
+        "plugin-babel": "https://unpkg.com/systemjs-plugin-babel/plugin-babel.js",
+        "systemjs-babel-build": "https://unpkg.com/systemjs-plugin-babel/systemjs-babel-browser.js"
+    },
+    meta: {
+        "*.vue": { loader: "vue" }
+    },
+    transpiler: "plugin-babel"
+});
+System["import"]("Vue").then(function (Vue) {
+    var app = new Vue({
+        el: "#app",
+        components: {
+            myComponent: function () { return System["import"]("./component.vue"); }
         }
     });
-    
-	// to use component in your code with RequireJS: 
-	// put a reference to your component file with or without extencion after 'vue!' 
-    require(["Vue", "vue!component"], function(Vue){
-        var app = new Vue({
-            el: "#app"
-        });
-    });
+});
 ```
 
 ## Contributing
