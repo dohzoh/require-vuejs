@@ -2,13 +2,13 @@
   "name": "systemjs-vue-inbrowser",
   "version": "0.0.1",
   "description": "SystemJS plugin to async and dynamic load and parse .vue components in the browser without webpack",
-  "main": "dist/plugin-vue.js",
+  "main": "dist/plugin-vue-inbrowser.min.js",
   "author": "Yohzoh Matsui",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/dohzoh/systemjs-vue-inbrowser/pulls"
   },
-  "homepage": "",
+  "homepage": "https://qiita.com/dozo/",
   "directories": {
     "doc": "docs",
     "test": "spec"
@@ -28,20 +28,18 @@
     "systemjs"
   ],
   "dependencies": {
-    "browser-sync": "^2.24.6",
-    "requirejs": "^2.3.3",
-    "vue": "^2.3.4"
+    "browser-sync": "^2.24.6"
   },
   "devDependencies": {
-    "eslint": "^3.19.0",
-    "eslint-config-vue": "^2.0.2",
-    "eslint-plugin-vue": "^2.1.0",
     "rollup": "^0.63.4",
+    "rollup-plugin-babel": "^3.0.7",
+    "rollup-plugin-commonjs": "^9.1.3",
     "rollup-plugin-gzip": "^1.4.0",
-    "rollup-plugin-multi-dest": "^1.0.2",
+    "rollup-plugin-node-resolve": "^3.3.0",
     "rollup-plugin-terser": "^1.0.1",
-    "rollup-plugin-uglify": "^4.0.0",
-    "rollup-plugin-uglify-es": "^0.0.1",
-    "terser": "^3.8.1"
+    "rollup-plugin-typescript2": "^0.16.1",
+    "systemjs": "^0.21.4",
+    "terser": "^3.8.1",
+    "typescript": "^2.9.2"
   }
 }

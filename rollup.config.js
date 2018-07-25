@@ -1,38 +1,43 @@
+// rollup.config.js
+import typescript from "rollup-plugin-typescript2";
 import { terser } from "rollup-plugin-terser";
 import gzip from "rollup-plugin-gzip";
 
 export default [
   /**
-   * export production
-   */
-  {
-    input: "src/system-plugin-vue-inbrowser.js",
-    output: {
-      file: "dist/plugin-vue-inbrowser.min.js",
-      format: "iife"
-    },
-    plugins: [terser(), gzip()]
-  },
-  /**
    * export develop
    */
   {
-    input: "src/system-plugin-vue-inbrowser.js",
+    input: "./src/plugin-vue-inbrowser.ts",
     output: {
-      file: "dist/plugin-vue-inbrowser.js",
-      format: "iife"
+      name: "SystemPluginVueInbrowser",
+      file: "./dist/plugin-vue-inbrowser.js",
+      format: "esm"
     },
-    plugins: []
+    plugins: [typescript()]
   },
   /**
-   * export sample
+   * export production
    */
   {
-    input: "src/system-plugin-vue-inbrowser.js",
+    input: "./src/plugin-vue-inbrowser.ts",
     output: {
-      file: "examples/src/plugin-vue-inbrowser.min.js",
-      format: "iife"
+      name: "SystemPluginVueInbrowser",
+      file: "./dist/plugin-vue-inbrowser.min.js",
+      format: "esm"
     },
-    plugins: [terser()]
+    plugins: [typescript(), terser()]
+  },
+  /**
+   * export for sample
+   */
+  {
+    input: "./src/plugin-vue-inbrowser.ts",
+    output: {
+      name: "SystemPluginVueInbrowser",
+      file: "./examples/src/plugin-vue-inbrowser.min.js",
+      format: "esm"
+    },
+    plugins: [typescript(), terser()]
   }
 ];

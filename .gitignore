@@ -8,3 +8,6 @@ coverage
 *.log
 examples/main-built.js
 .idea
+.rpt2_cache/
+package-lock.json
+shrinkwrap.yaml
