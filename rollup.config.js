@@ -1,7 +1,6 @@
 // rollup.config.js
 import typescript from "rollup-plugin-typescript2";
 import { terser } from "rollup-plugin-terser";
-import gzip from "rollup-plugin-gzip";
 
 export default [
   /**
